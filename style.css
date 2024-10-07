@@ -37,7 +37,7 @@ body {
 
 /* Desain tampilan kalkulator */
 .display input {
-    width: 200%;
+    width: 90%;
     height: 70px;
     font-size: 36px;
     text-align: right;
