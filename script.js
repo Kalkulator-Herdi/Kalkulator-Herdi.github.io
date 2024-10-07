@@ -1,43 +1,41 @@
-// Menampilkan jam secara real-time
-function updateClock() {
-    var now = new Date();
-    var hours = now.getHours().toString().padStart(2, '0');
-    var minutes = now.getMinutes().toString().padStart(2, '0');
-    var seconds = now.getSeconds().toString().padStart(2, '0');
-    var timeString = hours + ':' + minutes + ':' + seconds;
-    
-    document.getElementById('clock').textContent = timeString;
+let displayValue = ''; // Untuk menyimpan nilai input pengguna
+
+// Fungsi untuk memperbarui tampilan kalkulator
+function updateDisplay() {
+    document.getElementById('display').value = displayValue;
 }
 
-// Jalankan updateClock setiap detik
-setInterval(updateClock, 1000);
-
-// Jalankan sekali saat halaman pertama kali dibuka
-updateClock();
-
-// Fungsi untuk kalkulator
+// Fungsi untuk menambahkan angka ke tampilan
 function appendNumber(number) {
-    document.getElementById('display').value += number;
+    displayValue += number;
+    updateDisplay();
 }
 
+// Fungsi untuk menambahkan operator ke tampilan
 function appendOperator(operator) {
-    document.getElementById('display').value += operator;
+    displayValue += operator;
+    updateDisplay();
 }
 
+// Fungsi untuk menghapus semua input
 function clearDisplay() {
-    document.getElementById('display').value = '';
+    displayValue = '';
+    updateDisplay();
 }
 
+// Fungsi untuk menghapus input terakhir
 function deleteLast() {
-    var currentDisplay = document.getElementById('display').value;
-    document.getElementById('display').value = currentDisplay.slice(0, -1);
+    displayValue = displayValue.slice(0, -1);
+    updateDisplay();
 }
 
+// Fungsi untuk menghitung hasil
 function calculateResult() {
     try {
-        var result = eval(document.getElementById('display').value);
-        document.getElementById('display').value = result;
+        displayValue = eval(displayValue); // eval akan menghitung operasi matematika
+        updateDisplay();
     } catch (error) {
-        document.getElementById('display').value = 'Error';
+        displayValue = 'Error';
+        updateDisplay();
     }
 }
