@@ -21,7 +21,7 @@ body {
 .calculator {
     background-color: rgba(0, 0, 0, 0.7); /* Warna dalam kotak kalkulator */
     padding: 20px;
-    border-radius: 20px;
+    border-radius: 50px;
     box-shadow: 0px 15px 25px rgba(0, 0, 0, 0.3);
     width: 320px;
     border: 2px solid rgba(255, 255, 255, 0.2);
@@ -37,7 +37,7 @@ body {
 
 /* Desain tampilan kalkulator */
 .display input {
-    width: 90%;
+    width: 70%;
     height: 70px;
     font-size: 36px;
     text-align: right;
